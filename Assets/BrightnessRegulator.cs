@@ -8,7 +8,7 @@ public class BrightnessRegulator : MonoBehaviour
     private Material myMaterial;
 
     //Emmisionの最小値
-    private float minEmission = 0.2f;
+    private float minEmission = 0.7f;//色が暗すぎるので0.7に変更
     //Emissionの強度
     private float magEmission = 2.0f;
     //角度
@@ -39,7 +39,7 @@ public class BrightnessRegulator : MonoBehaviour
         this.myMaterial = GetComponent<Renderer>().material;
 
         //オブジェクトの最初の色を設定
-        myMaterial.SetColor("_EmissionColor", this.defaultColor * minEmission);
+        // myMaterial.SetColor("_EmissionColor", this.defaultColor * minEmission);
     }
 
     // Update is called once per frame
@@ -53,6 +53,10 @@ public class BrightnessRegulator : MonoBehaviour
             myMaterial.SetColor("_EmissionColor", emissionColor);
             //現在の角度を小さくする
             this.degree -= this.speed;
+        }
+        else
+        {
+            myMaterial.SetColor("_EmissionColor", defaultColor * minEmission);//ボールが当たったと暗いままなので色を元に戻す
         }
     }
     //衝突時に呼ばれる関数
