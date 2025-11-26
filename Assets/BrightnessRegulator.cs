@@ -12,7 +12,7 @@ public class BrightnessRegulator : MonoBehaviour
     //Emissionの強度
     private float magEmission = 2.0f;
     //角度
-    private int degree = 0;
+    private int degree = -1;
     //発光速度
     private int speed = 5;
     //ターゲットのデフォルト色
